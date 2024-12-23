@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Movie Recommendation System</h1>
+    <form action="/recommend" method="POST">
+        <label for="movie_title">Enter Movie Title:</label><br>
+        <input type="text" id="movie_title" name="movie_title"><br><br>
+
+        <label for="genres">Genres (select multiple):</label><br>
+        <!-- <select id="genres" name="genres" multiple>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Comedy">Comedy</option>
+        </select><br><br> -->
+
+        <label for="min_runtime">Min Runtime (in minutes):</label><br>
+        <input type="number" id="min_runtime" name="min_runtime" min="0" value="0"><br><br>
+
+        <label for="max_runtime">Max Runtime (in minutes):</label><br>
+        <input type="number" id="max_runtime" name="max_runtime" min="0" value="180"><br><br>
+
+        <label for="language">Language:</label><br>
+        <input type="text" id="language" name="language"><br><br>
+
+        <button type="submit">Get Recommendations</button>
+    </form>
+</body>
+
+</html>

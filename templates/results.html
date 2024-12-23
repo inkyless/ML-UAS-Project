@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+</head>
+
+<body>
+    <h1>Movie Recommendations</h1>
+
+    {% if recommendations %}
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Release Date</th>
+            <th>Runtime</th>
+            <th>Language</th>
+            <th>Overview</th>
+            <th>Score</th>
+        </tr>
+        {% for movie in recommendations %}
+        <tr>
+            <td>{{ movie['title'] }}</td>
+            <td>{{ movie['release_date'] }}</td>
+            <td>{{ movie['runtime'] }}</td>
+            <td>{{ movie['original_language'] }}</td>
+            <td>{{ movie['overview'] }}</td>
+            <td>{{ movie['score'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No movies found matching the criteria.</p>
+    {% endif %}
+</body>
+
+</html>
