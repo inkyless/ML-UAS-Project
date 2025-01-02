@@ -1,0 +1,84 @@
+.card {
+    padding: 1rem;
+    background: #fff;
+    display: flex;
+    margin: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px 0px brown;
+}
+
+h3 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+}
+
+#description {
+    margin: 0 1em;
+}
+
+#subheading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 0.5em;
+}
+
+#language-list {
+    background-color: burlywood;
+    color: aliceblue;
+    padding: 0.3em;
+    border-radius: 20px;
+}
+
+#overview {
+    text-align: justify;
+    margin: 0.5em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 12;
+}
+
+#genre-list {
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    padding: 0.5em 1em;
+    font-weight: 600;
+    font-size: 1.1em;
+    background-color: burlywood;
+    border-radius: 10px;
+}
+
+#return-button {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width:900px) {
+    .card {
+        max-width: 45%;
+    }
+
+    #columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media(max-width) {
+    #return-button {
+        max-width: 80%;
+    }
+}
+
+#error-message {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 5em auto;
+    align-items: center;
+    color: aliceblue;
+}

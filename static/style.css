@@ -1,0 +1,201 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("https://img.freepik.com/free-photo/cinematography-symbols-black-background_23-2147698946.jpg?t=st=1735809749~exp=1735813349~hmac=defa2bf1651a3a4ed688a8db30442cc629058f4deb9fd788c4afcbfaa00d65d0&w=900") no-repeat center center fixed;
+    font-family: monospace;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+form {
+    max-width: 60%;
+    margin: 1em auto;
+    background-color: burlywood;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+.fill-form {
+    display: flex;
+    margin: 1em 0;
+}
+
+.fill-form>label {
+    min-width: 35%;
+    font-size: 1.5em;
+}
+
+.genre_class {
+    margin: 0 0.5em;
+    min-width: 12%;
+}
+
+.genre_class>label {
+    margin: 0 0.5em;
+    font-size: 1.2em;
+}
+
+
+h1 {
+    text-align: center;
+    margin: 1em;
+    color: brown;
+}
+
+.fill-form>label {
+    padding: 0.5em;
+    font-weight: 600;
+}
+
+input,
+select {
+    padding: 0.4em 1.2em;
+    border-radius: 0.5em;
+    border: 1.5px olive solid;
+    font-family: monospace;
+    display: inline;
+}
+
+#button {
+    width: 100%;
+    padding: 1em 1.5em;
+    background-color: olive;
+    color: aliceblue;
+    border: none;
+    font-weight: 600;
+    border-radius: 0.5em;
+    font-family: monospace;
+}
+
+#button:hover {
+    background-color: olivedrab;
+}
+
+.fill-form:nth-child(3),
+.fill-form:nth-child(2) {
+    flex-direction: column;
+}
+
+.fill-form>input,
+#fill-minutes>input {
+    flex-grow: 2;
+    text-align: center;
+}
+
+#fill-minutes>input {
+    margin: 0 1em;
+    max-width: 20%;
+}
+
+#genres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 3px;
+    margin: 2em 0;
+}
+
+#fill-minutes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px
+}
+
+#genres input {
+    padding: 1em;
+}
+
+select {
+    min-width: 40%;
+    flex-grow: 2;
+}
+
+#filter-reset {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0.5em 0;
+    color: antiquewhite
+}
+
+
+#error-button,
+#return-button {
+    min-width: 20%;
+    margin: 1em;
+    padding: 0.5em;
+    background-color: olive;
+    color: aliceblue;
+    border: none;
+    font-family: monospace;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+#error-button:hover,
+#return-button:hover {
+    background-color: olivedrab;
+    cursor: default;
+}
+
+#period {
+    margin-top: 0.5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 2;
+}
+
+
+#period label {
+    margin-left: 0.5em;
+}
+
+@media(max-width:880px) {
+    button {
+        margin-top: 0.5em
+    }
+
+    .fill-form {
+        flex-direction: column;
+        margin: 0.5em 0;
+    }
+
+    .fill-form>label {
+        padding: 0.2em;
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    #fill-minutes {
+        gap: 5px
+    }
+
+    #genres {
+        margin: 0.5em 0;
+    }
+}
+
+@media (max-width:570px) {
+    #period {
+        display: inline-block;
+    }
+
+    .period_class {
+        margin: 0.5em 0;
+    }
+
+}
