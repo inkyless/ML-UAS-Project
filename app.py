@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import pandas as pd
 from recommendation import recommend_movies
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -38,4 +39,5 @@ def recommend():
         return render_template("results.html", recommendations=recommendations.to_dict(orient='records'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+    serve(app,host='127.0.0.1',url_scheme='https')
