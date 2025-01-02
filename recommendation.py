@@ -40,7 +40,7 @@ def recommend_movies(data, movie_title=None, genres=None, min_runtime=None, max_
         recommendations = recommendations[recommendations['period_release'] == period_release]
 
     data_columns = ["title","imdb_id","release_date","runtime","original_language","overview",
-                    "score", "genres"]
+                    "score", "genres","poster_path"]
 
     #Use cluster when no movie title inputted
     if movie_title is None and "cluster" in data.columns:
@@ -65,5 +65,4 @@ def recommend_movies(data, movie_title=None, genres=None, min_runtime=None, max_
     elif len(recommendations) < 10:
         return recommendations[data_columns]
     #Final result
-    return recommendations[data_columns]
-
+    return recommendations[data_columns].head(25)

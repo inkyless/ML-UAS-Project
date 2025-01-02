@@ -80,3 +80,6 @@ venv.bak/
 
 tmdb-movies-dataset-2023-930k-movies.zip
 tmdb-movies/
+
+node_modules/
+.vscode/

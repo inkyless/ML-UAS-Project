@@ -14,11 +14,12 @@ def index():
 def recommend():
     if request.method == "POST":
         #Get data from user input
-        movie_title = request.args.get('movie_title',None)
-        genres = request.args.get('genres')
-        min_runtime = (request.args.get('min_runtime', type=int))
-        max_runtime = (request.args.get('max_runtime', type=int))
-        language = request.args.get('language')
+        movie_title = request.form.get('movie_title',None)
+        genres = request.form.getlist('genre')
+        min_runtime = (request.form.get('min_runtime', type=int))
+        max_runtime = (request.form.get('max_runtime', type=int))
+        language = request.form.get('language')
+        period = (request.form.get('period', type=int))
 
         #Proceed the data to function recommendation
         recommendations = recommend_movies(
@@ -27,7 +28,8 @@ def recommend():
             genres=genres,
             min_runtime=min_runtime,
             max_runtime=max_runtime,
-            language=language
+            language=language,
+            period_release=period
         )
 
          # Check if recommendations is a DataFrame

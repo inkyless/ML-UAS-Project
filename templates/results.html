@@ -5,35 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Recommendations</title>
+    <link href="static\style.css" rel="stylesheet">
+    <link href="static\results.css" rel="stylesheet">
 </head>
 
 <body>
     <h1>Movie Recommendations</h1>
 
     {% if recommendations %}
-    <table border="1">
-        <tr>
-            <th>Title</th>
-            <th>Release Date</th>
-            <th>Runtime</th>
-            <th>Language</th>
-            <th>Overview</th>
-            <th>Score</th>
-        </tr>
+    <a href="/" id="return-button">Return to Filter?</a>
+    <div id="columns">
         {% for movie in recommendations %}
-        <tr>
-            <td>{{ movie['title'] }}</td>
-            <td>{{ movie['release_date'] }}</td>
-            <td>{{ movie['runtime'] }}</td>
-            <td>{{ movie['original_language'] }}</td>
-            <td>{{ movie['overview'] }}</td>
-            <td>{{ movie['score'] }}</td>
-        </tr>
+        <div class="card">
+            <div id="image"><img
+                    src="https://image.tmdb.org/t/p/w220_and_h330_face{{ movie['poster_path'] if movie['poster_path'] else '/default.jpg' }}"
+                    alt="{{ movie['title'] }}"></div>
+            <div id="description">
+                <h3>{{movie['title']}}</h3>
+                <div id="subheading">
+                    <p id="release-date">{{ movie['release_date'] }}</p>
+                    <p>{{ movie['runtime'] }} minutes</p>
+                    <p id="language-list">{{ movie['original_language'] }}</p>
+                </div>
+                <p id="genre-list">{{ movie['genres'] }}</p>
+                <p id="overview">{{ movie['overview'] }}</p>
+            </div>
+        </div>
         {% endfor %}
-    </table>
+    </div>
+    <a href="/" id="return-button">Return to Filter?</a>
+
+
+
     {% else %}
-    <p>No movies found matching the criteria.</p>
+    <div id="error-message">
+        <p>No movies found matching the criteria.</p>
+        <a href="/" id="error-button">Try Again?</a>
+    </div>
     {% endif %}
 </body>
+<script src="static\results.js"></script>
+
 
 </html>
