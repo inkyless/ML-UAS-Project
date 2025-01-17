@@ -11,21 +11,32 @@
 
 <body>
     <h1>Movie Recommendation System</h1>
+    <div id="error-input">{{ error }}</div>
     <form action="/recommend" method="POST">
         <div class="fill-form">
             <label for="movie_title">Input Similar Movie Title:</label>
             <input type="text" id="movie_title" name="movie_title">
         </div>
 
-        <div class="fill-form">
+        <div class="fill-form" >
             <label for="min_runtime">Runtime</label>
-            <div id="fill-minutes">
-                from
-                <input type="number" id="min_runtime" name="min_runtime" min="0" max="60">
-                <label for="max_runtime">to</label>
-                <input type="number" id="max_runtime" name="max_runtime" min="60" max="300">
-                minutes
-            </div>
+            <div id="minutes-form">
+                <div id="fill-minutes">
+                    from
+                    <input type="number" id="min_runtime" name="min_runtime" min="0"  steps="1">
+                    <label for="max_runtime">to</label>
+                    <input type="number" id="max_runtime" name="max_runtime" min="0" steps="1">
+                    minutes
+                </div>
+                <label id="fill-steps">Choose Minutes Steps : </label>
+                <div id="steps_container">
+                    <input type="radio" value="1" name="steps" class="steps" checked id="steps1"><label for="steps1">1</label>
+                    <input type="radio" value="5" name="steps" class="steps" id="steps5"><label for="steps5">5</label>
+                    <input type="radio" value="10" name="steps" class="steps" id="steps10"><label for="steps10">10</label>
+                    <input type="radio" value="30" name="steps" class="steps" id="steps30"><label for="steps30">30</label>
+                    <input type="radio" value="60" name="steps" class="steps" id="steps60"><label for="steps60">60</label>
+                </div>
+            </dic>
         </div>
 
         <div class="fill-form">

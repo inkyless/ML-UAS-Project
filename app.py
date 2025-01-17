@@ -22,21 +22,29 @@ def recommend():
         language = request.form.get('language')
         period = (request.form.get('period', type=int))
 
-        #Proceed the data to function recommendation
-        recommendations = recommend_movies(
-            data=data,
-            movie_title=movie_title,
-            genres=genres,
-            min_runtime=min_runtime,
-            max_runtime=max_runtime,
-            language=language,
-            period_release=period
-        )
+        if int(min_runtime) > int(max_runtime):
+            error_message = "Minimum runtime is bigger than maximum runtime, please try again"
+            return render_template("index.html",error=error_message)
 
-         # Check if recommendations is a DataFrame
-        if isinstance(recommendations, str):  # If the result is a message, return it as an error
-            return render_template("results.html", recommendations=None, error_message=recommendations)
-        return render_template("results.html", recommendations=recommendations.to_dict(orient='records'))
+        else:
+            #Proceed the data to function recommendation
+            recommendations = recommend_movies(
+                data=data,
+                movie_title=movie_title,
+                genres=genres,
+                min_runtime=min_runtime,
+                max_runtime=max_runtime,
+                language=language,
+                period_release=period
+            )
+        
+            # Check if recommendations is a DataFrame
+            if isinstance(recommendations, str):  # If the result is a message, return it as an error
+                return render_template("results.html", recommendations=None, error_message=recommendations)
+            return render_template("results.html", recommendations=recommendations.to_dict(orient='records'))
+        
+
+        
 
 if __name__ == '__main__':
     app.run()

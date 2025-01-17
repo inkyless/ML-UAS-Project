@@ -92,8 +92,20 @@ function createPoster() {
     imageBox()
 }
 
-
 createGenres(genresList.sort())
 createLang(langList.reverse(), fullList.reverse())
 createPeriod(periodList)
 
+const stepsButton = document.querySelectorAll("input[name='steps'")
+const runtimeInput = document.querySelectorAll('input[type="number"]')
+
+function changeSteps(e){
+    const stepsValue = e.target.value
+    runtimeInput.forEach(input=>{
+        input.setAttribute("step",stepsValue)
+    })
+}
+
+for (let i=0;i<stepsButton.length;i++){
+    stepsButton[i].addEventListener("click",changeSteps)
+}
